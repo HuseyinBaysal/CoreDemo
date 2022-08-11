@@ -1,0 +1,41 @@
+﻿@using Entity.Concrete
+@model List<Category>
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Açıklama </th>
+            <th> Durumu </th>
+            <th> Detaylar </th>
+            <th> Sil </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryID</td>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                <td>@item.CategoryStatus</td>
+                <td><a href="/Category/Update/@item.CategoryID" class="btn btn-info">Güncelle </a></td>
+                <td><a class="btn btn-danger" href="/Category/Delete/@item.CategoryID"> Sil </a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
